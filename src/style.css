@@ -1,6 +1,11 @@
 body {
 }
 
+input {
+    background-color: #ddd;
+    border: none;
+}
+
 #input-wrapper {
     font-family: Consolas, monaco, monospace;
     text-align: center;
@@ -17,4 +22,37 @@ body {
 #input-wrapper #links {
     text-align: right;
     float: right;
+}
+
+/********/
+
+#dark-toggle {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    text-decoration: none;
+    font-size: 25px;
+}
+
+body.dark {
+    background-color: #222;
+    color: #ddd;
+}
+
+.dark input {
+    background-color: #444;
+    color: #ccc;
+}
+
+.dark a {
+    color: rgb(147, 43, 243);
+}
+
+/* https://github.com/swagger-api/swagger-ui/issues/5327#issuecomment-742375520 */
+.dark .swagger-ui {
+    filter: invert(88%) hue-rotate(180deg);
+}
+
+.dark .swagger-ui .highlight-code {
+    filter: invert(100%) hue-rotate(180deg);
 }

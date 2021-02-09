@@ -1,5 +1,6 @@
 import SwaggerUI from "swagger-ui";
 import 'swagger-ui/dist/swagger-ui.css';
+import './style.css'
 
 const definition = window.location.hash.substr(1);
 

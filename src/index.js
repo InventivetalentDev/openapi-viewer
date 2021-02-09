@@ -16,7 +16,7 @@ if (!definition) {
 }
 
 function load(definition) {
-    SwaggerUI({
+    window.ui = SwaggerUI({
         dom_id: "#ui",
         url: definition
     });

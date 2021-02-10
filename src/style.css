@@ -19,9 +19,19 @@ input {
     text-align: center;
 }
 
+#input-wrapper #disclaimer {
+    text-align: left;
+    float: left;
+    font-style: italic;
+    font-size: 12px;
+    opacity: 0.6;
+    max-width: 70%;
+}
+
 #input-wrapper #links {
     text-align: right;
     float: right;
+    max-width: 20%;
 }
 
 /********/

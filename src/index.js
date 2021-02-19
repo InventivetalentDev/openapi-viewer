@@ -13,7 +13,7 @@ let dark = true;
 if (!definition) {
     wrapper.style.display = "";
     input.addEventListener("change", () => {
-        window.location.hash = input.value;
+        window.history.pushState("", "", `?${ input.value }`);
         load(input.value);
     });
 } else {

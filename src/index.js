@@ -12,10 +12,29 @@ let dark = true;
 
 if (!definition) {
     wrapper.style.display = "";
+
+    // URL
     input.addEventListener("change", () => {
         window.history.pushState("", "", `?${ input.value }`);
         load(input.value);
     });
+
+    // File
+    input.addEventListener("dragover", e=>{
+        e.stopPropagation();
+        e.preventDefault();
+        e.dataTransfer.dropEffect = "copy";
+    })
+    input.addEventListener("drop", e=>{
+        e.stopPropagation();
+        e.preventDefault();
+
+        const files = e.dataTransfer.files;
+        if (files.length > 0) {
+            const file = files[0];
+            load(window.URL.createObjectURL(file));
+        }
+    })
 } else {
     load(definition);
 }

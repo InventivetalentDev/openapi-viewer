@@ -15,17 +15,17 @@ if (!definition) {
 
     // URL
     input.addEventListener("change", () => {
-        window.history.pushState("", "", `?${ input.value }`);
+        window.history.pushState({url: input.value}, "", `?${ input.value }`);
         load(input.value);
     });
 
     // File
-    input.addEventListener("dragover", e=>{
+    input.addEventListener("dragover", e => {
         e.stopPropagation();
         e.preventDefault();
         e.dataTransfer.dropEffect = "copy";
     })
-    input.addEventListener("drop", e=>{
+    input.addEventListener("drop", e => {
         e.stopPropagation();
         e.preventDefault();
 

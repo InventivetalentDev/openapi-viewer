@@ -42,6 +42,10 @@ input {
     font-size: 25px;
 }
 
+#example-links > * {
+    white-space: nowrap;
+}
+
 /********/
 
 #dark-toggle {

@@ -2,42 +2,51 @@ import SwaggerUI from "swagger-ui";
 import 'swagger-ui/dist/swagger-ui.css';
 import './style.css'
 
-const definition = window.location.search.substr(1) || window.location.hash.substr(1);
-
 const wrapper = document.getElementById("input-wrapper");
 const input = document.getElementById("input");
 const darkToggle = document.getElementById("dark-toggle");
 
 let dark = true;
 
-if (!definition) {
-    wrapper.style.display = "";
+function reload() {
+    let definition = window.location.search.substr(1) || window.location.hash.substr(1);
 
-    // URL
-    input.addEventListener("change", () => {
-        window.history.pushState({url: input.value}, "", `?${ input.value }`);
-        load(input.value);
-    });
+    if (!definition) {
+        wrapper.style.display = "";
 
-    // File
-    input.addEventListener("dragover", e => {
-        e.stopPropagation();
-        e.preventDefault();
-        e.dataTransfer.dropEffect = "copy";
-    })
-    input.addEventListener("drop", e => {
-        e.stopPropagation();
-        e.preventDefault();
+        // URL
+        input.addEventListener("change", () => {
+            window.history.pushState({url: input.value}, "", `?${ input.value }`);
+            load(input.value);
+        });
 
-        const files = e.dataTransfer.files;
-        if (files.length > 0) {
-            const file = files[0];
-            load(window.URL.createObjectURL(file));
-        }
-    })
-} else {
-    load(definition);
+        // File
+        input.addEventListener("dragover", e => {
+            e.stopPropagation();
+            e.preventDefault();
+            e.dataTransfer.dropEffect = "copy";
+        })
+        input.addEventListener("drop", e => {
+            e.stopPropagation();
+            e.preventDefault();
+
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                const file = files[0];
+                load(window.URL.createObjectURL(file));
+            }
+        })
+    } else {
+        load(definition);
+    }
 }
+
+reload();
+
+window.addEventListener('popstate', (event) => {
+    console.debug(`location: ${ document.location }, state: ${ JSON.stringify(event.state) }`);
+    reload();
+});
 
 darkToggle.addEventListener("click", (e) => {
     e.preventDefault();
@@ -51,6 +60,7 @@ darkToggle.addEventListener("click", (e) => {
         darkToggle.textContent = "🌞";
     }
 })
+
 
 function load(definition) {
     window.ui = SwaggerUI({

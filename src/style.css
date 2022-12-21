@@ -83,3 +83,7 @@ body.dark {
 .swagger-ui .opblock .opblock-summary-path {
     max-width: 100% !important;
 }
+
+.responses-inner, .model-container {
+    overflow-y: auto !important;
+}

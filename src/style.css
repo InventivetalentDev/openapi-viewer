@@ -34,6 +34,14 @@ input {
     max-width: 20%;
 }
 
+#home-button {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    text-decoration: none;
+    font-size: 25px;
+}
+
 /********/
 
 #dark-toggle {

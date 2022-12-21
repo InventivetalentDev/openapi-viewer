@@ -4,6 +4,7 @@ import './style.css'
 
 const wrapper = document.getElementById("input-wrapper");
 const input = document.getElementById("input");
+const homeButton = document.getElementById("home-button");
 const darkToggle = document.getElementById("dark-toggle");
 
 let dark = true;
@@ -47,6 +48,12 @@ window.addEventListener('popstate', (event) => {
     console.debug(`location: ${ document.location }, state: ${ JSON.stringify(event.state) }`);
     reload();
 });
+
+homeButton.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    window.location = "https://rest.wiki";
+})
 
 darkToggle.addEventListener("click", (e) => {
     e.preventDefault();

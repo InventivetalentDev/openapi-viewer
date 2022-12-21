@@ -3,6 +3,7 @@ import 'swagger-ui/dist/swagger-ui.css';
 import './style.css'
 
 const wrapper = document.getElementById("input-wrapper");
+const ui = document.getElementById("ui");
 const input = document.getElementById("input");
 const homeButton = document.getElementById("home-button");
 const darkToggle = document.getElementById("dark-toggle");
@@ -14,6 +15,7 @@ function reload() {
 
     if (!definition) {
         wrapper.style.display = "";
+        ui.style.display = "none";
 
         // URL
         input.addEventListener("change", () => {
@@ -70,6 +72,7 @@ darkToggle.addEventListener("click", (e) => {
 
 
 function load(definition) {
+    ui.style.display = "";
     window.ui = SwaggerUI({
         dom_id: "#ui",
         url: definition,

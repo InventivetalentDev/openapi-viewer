@@ -78,3 +78,8 @@ body.dark {
 .dark .swagger-ui .highlight-code {
     filter: invert(100%) hue-rotate(180deg);
 }
+
+/* overrides */
+.swagger-ui .opblock .opblock-summary-path {
+    max-width: 100% !important;
+}

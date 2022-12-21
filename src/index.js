@@ -11,7 +11,14 @@ const darkToggle = document.getElementById("dark-toggle");
 let dark = true;
 
 function reload() {
-    let definition = window.location.search.substr(1) || window.location.hash.substr(1);
+    let definition = undefined;
+    if (location.hash.length > 2) {
+        definition = location.hash.substring(1);
+    } else if (location.search.length > 2) {
+        definition = location.search.substring(1);
+    } else if (location.pathname.startsWith("/http")) {
+        definition = location.pathname.substr(1);
+    }
 
     if (!definition) {
         wrapper.style.display = "";
@@ -28,7 +35,7 @@ function reload() {
             e.stopPropagation();
             e.preventDefault();
             e.dataTransfer.dropEffect = "copy";
-        })
+        });
         input.addEventListener("drop", e => {
             e.stopPropagation();
             e.preventDefault();
@@ -38,7 +45,7 @@ function reload() {
                 const file = files[0];
                 load(window.URL.createObjectURL(file));
             }
-        })
+        });
     } else {
         load(definition);
     }

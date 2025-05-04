@@ -86964,6 +86964,7 @@ darkToggle.addEventListener("click", (e) => {
 
 
 function src_load(definition) {
+    console.info('Loading', definition);
     ui.style.display = "";
     window.ui = el({
         dom_id: "#ui",

@@ -85,8 +85,7 @@ function load(definition) {
         url: definition,
         docExpansion: "list",
         onComplete: function (api, ui) {
-            console.log(api);
-            console.log(ui);
+            console.log('onComplete', api, ui);
             wrapper.style.display = "none";
 
             let hash = window.location.hash;

@@ -1,5 +1,5 @@
-import SwaggerUI from "swagger-ui";
-import 'swagger-ui/dist/swagger-ui.css';
+//import SwaggerUI from "swagger-ui";
+//import 'swagger-ui/dist/swagger-ui.css';
 import './style.css'
 
 const wrapper = document.getElementById("input-wrapper");
@@ -81,7 +81,7 @@ darkToggle.addEventListener("click", (e) => {
 function load(definition) {
     console.info('Loading', definition);
     ui.style.display = "";
-    window.ui = SwaggerUI({
+    window.ui = SwaggerUIBundle({
         dom_id: "#ui",
         url: definition,
         docExpansion: "list",

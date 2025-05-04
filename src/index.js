@@ -79,6 +79,7 @@ darkToggle.addEventListener("click", (e) => {
 
 
 function load(definition) {
+    console.info('Loading', definition);
     ui.style.display = "";
     window.ui = SwaggerUI({
         dom_id: "#ui",
